@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  firebase:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./:/src:${CONSISTENCY:-cached}
+    ports:
+      - 9005:9005
+
